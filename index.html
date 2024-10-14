@@ -3,243 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DachNima - Home</title>
-
-    <!-- لینک لوگو favicon -->
-    <link rel="icon" type="image/png" href="https://uploadkon.ir/uploads/69e112_2432.png">
-
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
-    
+    <title>About Me Section</title>
     <style>
         body {
-            background-color: #121212; /* رنگ پس‌زمینه */
-            margin: 0; /* حذف حاشیه */
-            padding: 0; /* حذف padding */
-            font-family: 'Vazir', sans-serif; /* استفاده از فونت فارسی */
-            overflow: hidden; /* جلوگیری از اسکرول */
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
         }
 
-        ::selection {
-            background-color: #808080; /* رنگ طوسی */
-            color: white; /* رنگ متن سفید */
-        }
-
-        #particles-js {
-            position: absolute;
+        .navbar {
             width: 100%;
-            height: 100%;
+            height: 210px;
+            background: linear-gradient(180deg, #3f3f3f 0%, #1a1a1a 100%);
+            display: flex;
+            flex-direction: column;
+            font-family: Vazirmatn;
+            justify-content: center;
+            align-items: center;
             top: 0;
             left: 0;
-            z-index: -1; /* قرار دادن ذرات در پس‌زمینه */
+            z-index: 1000;
         }
 
-        .container {
-            width: 300px;
-            text-align: center;
-            margin-top: 200px; /* فاصله از بالا */
-            margin-left: 200px; /* فاصله از سمت چپ */
-            position: relative; /* قرار دادن خط در موقعیت نسبی */
+        .navbar h1 {
+            color: white;
+            font-size: 40px;
+            margin: 0;
         }
 
-        .box {
-            width: 350px; /* عرض بزرگ‌تر */
-            height: 370px;
-            background-color: #121212; /* رنگ کادر */
-            display: block; /* تغییر به block */
-            margin: 0 auto; /* مرکز کردن کادر */
-            border-radius: 20px; /* گوشه‌های گرد */
-            border: 0.5px solid rgb(49, 49, 49); /* حاشیه سفید */
-        }
-
-        .line {
-            position: absolute; /* قرار دادن خط در موقعیت مطلق */
-            top: 0; /* تنظیم ارتفاع خط */
-            left: 390px; /* فاصله خط از کادر */
-            width: 1px; /* عرض نازک خط */
-            height: 370px; /* ارتفاع خط */
-            background-color: rgb(92, 92, 92); /* رنگ خط */
-        }
-
-        .container p {
-            margin-top: 10px;
-            text-align: left; /* جابجایی متن به سمت چپ */
-            color: rgb(156, 156, 156); /* رنگ متن */
-            margin-left: 20px; /* فاصله از سمت چپ */
-        }
-
-        .new-box {
-            width: 900px; /* عرض کادر جدید */
-            height: 330px; /* ارتفاع کادر جدید */
-            background-color: #121212; /* رنگ کادر */
-            border-radius: 20px; /* گوشه‌های گرد */
-            border: 0.5px solid rgb(49, 49, 49); /* حاشیه */
-            position: absolute; /* قرار دادن کادر جدید در موقعیت مطلق */
-            left: 640px; /* فاصله کادر جدید از کادر قبلی */
-            top: 200px; /* فاصله از بالا */
-            padding: 20px; /* فاصله داخلی برای متن */
-            color: rgb(156, 156, 156); /* رنگ متن */
-        }
-
-        .side-box {
-            width: 200px;
-            height: 350px;
-            background-color: #121212;
-            position: absolute;
-            top: 200px;
-            right: 50px; /* فاصله از سمت راست */
-            border-radius: 20px;
-            border: 1px solid #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .side-box h2 {
+        .navbar p {
+            color: white;
             font-size: 18px;
+            margin: 5px 0 0 0;
+        }
+
+        .content {
+            padding-top: 50px; 
+            text-align: center;
+        }
+
+        .about-title {
+            font-size: 24px;
+            color: rgb(36, 36, 36); 
+            font-family: calibri;
             margin-bottom: 10px;
         }
 
-        .side-box p {
-            font-size: 14px;
-            line-height: 1.5;
+        .about-description {
+            font-size: 16px;
+            font-family: calibri;
+            color: #555;
+            max-width: 600px;
+            margin: 10px auto; 
+            text-align: center;
         }
 
+        .work-title {
+            font-size: 24px;
+            color: rgb(36, 36, 36); 
+            font-family: calibri;
+            margin-block: 1px;
+        }
+
+        .work-description {
+            font-size: 16px;
+            color: #555;
+            font-family: calibri;
+            max-width: 600px;
+            margin: 10px auto;
+            margin-block: 1px;
+            text-align: center;
+            margin-top: -30px;
+        }
+
+        .top-bar {
+            background-color: #0091ff;
+            color: white;
+            padding: 10px; 
+            text-align: center;
+            font-size: 14px;
+            position: fixed;
+            top: 0px; 
+            left: 70%; 
+            transform: translateX(-50%); 
+            width: 250px; 
+            z-index: 1000;
+            border-bottom-left-radius: 20px; 
+            border-bottom-right-radius: 20px; 
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+            display: flex;
+            align-items: center; 
+            justify-content: center; 
+        }
+
+        .top-bar img {
+            margin-right: 8px; 
+            width: 25px; 
+            height: 25px; 
+            filter: brightness(0) invert(1); 
+        }
+
+        .top-bar span {
+            margin-left: 5px; 
+            padding: 5px; 
+            border: 1px solid white; 
+            border-radius: 5px; 
+            background-color: rgba(255, 255, 255, 0.1); 
+            line-height: 1.5; 
+            font-family: calibri; 
+            font-size: 16px; 
+            display: flex; 
+            align-items: center; 
+        }
     </style>
 </head>
 <body>
-
-    <div id="particles-js"></div> <!-- بخش ذرات -->
-
-    <div class="container">
-        <div class="box"></div>
-        <div class="line"></div> <!-- اضافه کردن خط نازک -->
-        <p> •  I'm <b>Nima</b> , From <b>Iran</b></p>
+    <div class="navbar">
+        <h1>DachNima</h1>
+        <p>زیرعنوان توضیحی درباره DachNima</p>
     </div>
 
-    <div class="new-box">
-        <h1 style="color: rgb(156, 156, 156); font-size: 24px; text-align: center;">About Me</h1>
-        <p>Hello , Im DachNima From Iran</p>
+    <div class="content">
+        <p class="about-title"><b>Working About</b></p>
+        <p class="about-description">
+            This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:
+        </p>
     </div>
 
-    <!-- کادر جدید سمت راست -->
-    <div class="side-box">
-        <h2 style="color: rgb(156, 156, 156); font-size: 20px; text-align: center;">Social Media</h1>
-            <a href="https://discord.gg/rz379FwD4F" target="_blank">
-            <img src="" alt="" style="width: 90px; height: 60px; border-radius: 20px;;">
-
+    <div class="content">
+        <p class="work-title"><b>Designer Templates</b></p>
     </div>
 
-    <!-- لینک particles.js -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <div class="content">
+        <p class="work-description">
+            We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.
+        </p>
+    </div>
 
-    <script>
-        particlesJS('particles-js', {
-            "particles": {
-                "number": {
-                    "value": 50,  // کاهش تعداد ذرات
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#ffffff"
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    },
-                    "polygon": {
-                        "nb_sides": 5
-                    },
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": false,
-                    "anim": {
-                        "enable": false,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#ffffff",
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 2,  // کاهش سرعت ذرات
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "grab"
-                    },
-                    "onclick": {
-                        "enable": false,  // غیرفعال کردن بزرگ شدن ذرات هنگام کلیک
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": {
-                        "distance": 200,
-                        "line_linked": {
-                            "opacity": 1
-                        }
-                    },
-                    "bubble": {
-                        "distance": 0,  // غیرفعال کردن بزرگ شدن هنگام کلیک
-                        "size": 0,
-                        "duration": 0,
-                        "opacity": 0,
-                        "speed": 0
-                    },
-                    "repulse": {
-                        "distance": 200,
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    },
-                    "remove": {
-                        "particles_nb": 2
-                    }
-                }
-            },
-            "retina_detect": true
-        });
-    </script>
+    <a href="https://github.com/DachNima" target="_blank">
+        <div class="top-bar">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Icon">
+            <b>View on GitHub</b> 
+        </div>
+    </a>
 
 </body>
 </html>
-
