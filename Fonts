@@ -1,0 +1,9 @@
+        @font-face {
+            font-family: 'RastinFont';
+            src: url('fonts/Digi Rastin Bold.otf') format('opentype'); 
+        }
+
+        @font-face {
+            font-family: 'VazirMatnMedium';
+            src: url('fonts/Vazirmatn-Medium.ttf') format('truetype'); 
+        }
